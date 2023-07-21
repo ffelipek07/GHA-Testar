@@ -31,6 +31,12 @@ jobs:
           versionSpec: '5.x'
           preferLatestVersion: true
 
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0
+        with:
+          useConfigFile: true
+          configFilePath: VersionConfig.yml
+
       #- name: Release
       #  uses: cycjimmy/semantic-release-action@v3
       #  with:
