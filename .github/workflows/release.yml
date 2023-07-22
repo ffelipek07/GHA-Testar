@@ -42,6 +42,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
           WITH_V: false
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
       #- name: Release
       #  uses: cycjimmy/semantic-release-action@v3
@@ -51,5 +52,5 @@ jobs:
       #      @semantic-release/changelog@6.0.0
       #      @semantic-release/git@10.0.0
       #      conventional-changelog-conventionalcommits@4.6.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
