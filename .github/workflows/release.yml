@@ -44,7 +44,7 @@ jobs:
           WITH_V: false
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
           PRERELEASE: true
-          DEFAULT_BUMP: major
+          DEFAULT_BUMP: major 
 
       #- name: Release
       #  uses: cycjimmy/semantic-release-action@v3
