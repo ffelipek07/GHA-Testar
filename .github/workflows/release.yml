@@ -6,11 +6,11 @@ on:
     branches:
       - main
       - master
-    paths:
-      - '**/*.tpl'
-      - '**/*.py'
-      - '**/*.tf'
-      - '.github/workflows/release.yml'
+    #paths:
+    #  - '**/*.tpl'
+    #  - '**/*.py'
+    #  - '**/*.tf'
+    #  - '.github/workflows/release.yml'
 
 jobs:
   release:
