@@ -51,19 +51,11 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
-
-name: Release2
-
 on:
   workflow_dispatch:
   push:
     branches: [ master ]
     types: [ closed ]  
-    #paths:
-    #  - '**/*.tpl'
-    #  - '**/*.py'
-    #  - '**/*.tf'
-    #  - '.github/workflows/release.yml'
 
 jobs:
   release:
