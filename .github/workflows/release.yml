@@ -37,22 +37,22 @@ jobs:
           useConfigFile: true
           configFilePath: GitVersion.yml
       
-#      - name: Bump version and push tag
-#        uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
-#        env:
-##          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
-#          WITH_V: false
-#          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-#          PRERELEASE: true 
-#          DEFAULT_BUMP: patch 
-
-      - name: Release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          semantic_version: 18.0.0
-          extra_plugins: |
-            @semantic-release/changelog@6.0.0
-            @semantic-release/git@10.0.0
-            conventional-changelog-conventionalcommits@4.6.3
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
         env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
+          WITH_V: false
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+          PRERELEASE: true 
+          DEFAULT_BUMP: patch 
+
+#      - name: Release
+#        uses: cycjimmy/semantic-release-action@v3
+#        with:
+#          semantic_version: 18.0.0
+#          extra_plugins: |
+#            @semantic-release/changelog@6.0.0
+#            @semantic-release/git@10.0.0
+#            conventional-changelog-conventionalcommits@4.6.3
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
