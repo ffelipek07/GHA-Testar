@@ -52,7 +52,7 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
 
-name: Release novo
+name: Release2
 
 on:
   workflow_dispatch:
