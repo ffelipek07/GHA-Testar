@@ -3,9 +3,8 @@ name: Release
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - master
+    branches: [ master ]
+    types: [ closed ]  
     #paths:
     #  - '**/*.tpl'
     #  - '**/*.py'
@@ -45,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
           PRERELEASE: true 
           DEFAULT_BUMP: patch
-          pre_release: true
+          
 
 #      - name: Release
 #        uses: cycjimmy/semantic-release-action@v3
