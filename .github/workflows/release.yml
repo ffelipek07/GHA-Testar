@@ -18,27 +18,17 @@ jobs:
     # Skip running release workflow on forks
     #if: github.repository_owner == 'GHA-Testar'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
         with:
-          persist-credentials: false
-          fetch-depth: 0
+          python-version: "3.10"
+          branch: master
 
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0
-        with:
-          versionSpec: '5.x'
-          preferLatestVersion: true
-
-      - name: Determine Version
-        uses: gittools/actions/gitversion/execute@v0
-        with:
-          useConfigFile: true
-          configFilePath: GitVersion.yml
       
       - name: Bump version and push tag
-        #uses: ffelipek07/push-tag@master
-        uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
+        uses: ffelipek07/push-tag@master
+        #uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
         env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
           WITH_V: false
@@ -46,16 +36,4 @@ jobs:
           PRERELEASE: true 
           DEFAULT_BUMP: patch
           
-
-#      - name: Release
-#        uses: cycjimmy/semantic-release-action@v3
-#        with:
-#          semantic_version: 18.0.0
-#          extra_plugins: |
-#            @semantic-release/changelog@6.0.0
-#            @semantic-release/git@10.0.0
-#            conventional-changelog-conventionalcommits@4.6.3
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-
 
